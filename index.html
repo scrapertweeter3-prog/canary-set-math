@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twenty questions catch a bad deploy one time in three</title>
+<style>
+body{font-family:Georgia,serif;max-width:660px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#22201c;background:#fbfaf7}
+h1{font-size:1.55rem;line-height:1.3}
+p{margin:0 0 1.05em}
+a{color:#1d5c38}
+footer{margin-top:2rem;font-size:.85rem;color:#777}
+</style>
+</head>
+<body>
+<h1>Twenty questions catch a bad deploy one time in three</h1>
+
+<p>The canary set most teams run before a model swap holds about twenty questions. Whether that catches anything depends on arithmetic nobody writes down. If the new model regresses five percent of answers, each question misses it 95 times in 100, and all twenty miss together 0.95 to the 20th, which is 35.8 percent of runs. A twenty question suite passes a real five percent regression better than one deploy in three.</p>
+
+<p>Sizing the set to the miss rate fixes it. Catch odds run 1 minus 0.95 to the N, so 95 percent confidence against a five percent regression takes 59 questions. A ten percent regression needs 29. A subtle two percent drift needs 149. Most suites sit at 20, which buys 64 percent against five and 88 percent against ten, and the two percent drift walks past either one.</p>
+
+<p>The honest comparison is pennies against tickets. Grading 90 rows on a small model, 800 tokens in and 200 out at $0.15 per million and $0.60 per million, costs $0.0216 a run. Daily runs for a month come to $0.65. One day of an uncaught five percent regression across 400 sessions generates roughly 20 support tickets, and at $8 of handling each that day bills $160. The 69 extra questions cost under two cents a day. The one-in-three miss costs $160 when it lands.</p>
+
+<p>Regression sizing math like this runs on <a href="https://pastagi.com/">Pastagi</a> at <a href="https://pastagi.com/">pastagi.com</a>.</p>
+
+<footer>The math says fifty-nine.</footer>
+</body>
+</html>
